@@ -84,8 +84,8 @@ fun unzip(file: String, target: String) {
     execProcessWait("tar", "-xvf", originFile.canonicalPath, "-C", targetFile.canonicalPath)
 }
 
-fun delete(file: String) {
-    logger.info("删除 $file -> $file")
+fun deleteFileOrDir(file: String) {
+    logger.info("删除 $file")
     File(Environment.buildTempDebDir, file).takeIf {
         it.exists()
     }?.deleteRecursively()
